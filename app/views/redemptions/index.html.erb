@@ -1,0 +1,51 @@
+<div align="center">
+<table style="background:#ffffff;width:90%;" border="1" cellspacing="0" cellpadding="4" align="center">
+  <tr>
+    <td>
+      <%= link_to "Download List(Mugs)", redemptions_path(:redemption_type => 'mugs', :format => 'csv') %>
+    </td>
+    <td>
+      <%= link_to "Download List(T-shirts)", redemptions_path(:redemption_type => 't-shirts', :format => 'csv') %>
+    </td>
+    <td>
+      <%= link_to "View List(Mugs)", redemptions_path(:redemption_type => 'mugs') %>
+    </td>
+    <td>
+      <%= link_to "View List(T-shirts)", redemptions_path(:redemption_type => 't-shirts') %>
+    </td>
+  </tr> 
+</table>
+</div>
+
+<br><br>
+
+<table style="background:#ffffff;width:90%;" border="1" cellspacing="0" cellpadding="4" align="center">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Pin Code</th>
+      <th>Contact Number</th>
+      <% if @redemption_type == 't-shirts' %>
+        <th>T shirt size</th>
+      <% end %>
+    </tr>
+  </thead>
+  <% @redemptions.each do |r| %>
+    <tr>
+      <td><%= r.email %></td>
+      <td><%= r.name %></td>
+      <td><%= r.address %></td>
+      <td><%= r.pin_code %></td>
+      <td><%= r.contact_number %></td>
+      <% if @redemption_type == 't-shirts' %>
+        <td><%= r.t_shirt_size %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<div style="background:#ffffff;">
+  <%= will_paginate @visits %>
+</div>

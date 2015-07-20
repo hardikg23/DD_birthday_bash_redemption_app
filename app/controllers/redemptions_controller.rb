@@ -3,7 +3,13 @@ class RedemptionsController < ApplicationController
   before_action :authenticate, only: [ :create ]
 
   def index
-    render :text => "gello"
+    page = params[:page] || 1
+    @redemption_type = params[:redemption_type] || 'mugs'
+    @redemptions = Redemption.where('redemption_type = ?', @redemption_type).order('id desc').paginate(:page => page, :per_page => 20)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.csv {send_data  Redemption.where('redemption_type = ?', @redemption_type).order('id desc').to_csv, :type => 'text/csv' , :disposition => "attachment; filename=redemption.csv"}
+    end
   end
 
   def create
