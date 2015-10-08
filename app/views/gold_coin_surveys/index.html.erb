@@ -1,0 +1,87 @@
+<div align="center">
+<table style="background:#ffffff;width:90%;" border="1" cellspacing="0" cellpadding="4" align="center">
+  <tr>
+    <td>
+      <%= link_to "Download List", gold_coin_surveys_path(:format => 'csv') %>
+    </td>
+  </tr> 
+</table>
+</div>
+
+<br><br>
+
+<table style="background:#ffffff;width:90%;" border="1" cellspacing="0" cellpadding="4" align="center">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Question 1</th>
+      <th>Question 2</th>
+      <th>Question 3</th>
+      <th>Question 3(others)</th>
+      <th>Question 4</th>
+      <th>Question 5</th>
+      <th>Question 5(others)</th>
+      <th>Question 6</th>
+      <th>Question 7</th>
+      <th>Question 7(others)</th>
+      <th>Question 8</th>
+      <th>Question 9</th>
+      <th>Question 10</th>
+      <th>Question 11</th>
+      <th>Question 12</th>
+      <th>Question 13</th>
+      <th>Question 13(others)</th>
+      <th>Question 14</th>
+      <th>Question 15</th>
+      <th>Question 15(others)</th>
+      <th>Question 16</th>
+      <th>Question 16(others)</th>
+      <th>Question 17</th>
+      <th>Question 17(others)</th>
+      <th>Question 18</th>
+      <th>Question 18(others)</th>
+      <th>Question 19</th>
+      <th>Question 20</th>
+    </tr>
+  </thead>
+  <% @surveys.each do |s| %>
+    <tr>
+      <td><%= s.user_id %></td>
+      <td><%= s.email %></td>
+      <td><%= s.question_1 %></td>
+      <td><%= s.question_2 %></td>
+      <td><%= s.question_3 %></td>
+      <td><%= s.question_3_input %></td>
+      <td><%= s.question_4 %></td>
+      <td><%= s.question_5 %></td>
+      <td><%= s.question_5_input %></td>
+      <td><%= s.question_6 %></td>
+      <td><%= s.question_7 %></td>
+      <td><%= s.question_7_input %></td>
+      <td><%= s.question_8 %></td>
+      <td><%= s.question_9 %></td>
+      <td><%= s.question_10 %></td>
+      <td><%= s.question_11 %></td>
+      <td><%= s.question_12 %></td>
+      <td><%= s.question_13 %></td>
+      <td><%= s.question_13_input %></td>
+      <td><%= s.question_14 %></td>
+      <td><%= s.question_15 %></td>
+      <td><%= s.question_15_input %></td>
+      <td><%= s.question_16 %></td>
+      <td><%= s.question_16_input %></td>
+      <td><%= s.question_17 %></td>
+      <td><%= s.question_17_input %></td>
+      <td><%= s.question_18 %></td>
+      <td><%= s.question_18_input %></td>
+      <td><%= s.question_19 %></td>
+      <td><%= s.question_20 %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br><br>
+<div style="background:#ffffff;" align="center">
+  <%= will_paginate @surveys %>
+</div>
