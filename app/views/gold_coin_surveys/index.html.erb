@@ -15,6 +15,7 @@
     <tr>
       <th>Email</th>
       <th>Name</th>
+      <th>Location</th>
       <th>Question 1</th>
       <th>Question 2</th>
       <th>Question 3</th>
@@ -49,6 +50,11 @@
     <tr>
       <td><%= s.user_id %></td>
       <td><%= s.email %></td>
+      <td>
+        City : <%= s.city %><br>
+        Latitude : <%= s.latitude %><br>
+        Longitude: <%= s.longitude %><br>
+      </td>
       <td><%= s.question_1 %></td>
       <td><%= s.question_2 %></td>
       <td><%= s.question_3 %></td>
