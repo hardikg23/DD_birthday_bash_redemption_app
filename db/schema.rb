@@ -36,22 +36,23 @@ ActiveRecord::Schema.define(version: 20151008055737) do
     t.string   "question_9"
     t.string   "question_10"
     t.string   "question_11"
-    t.string   "question_12",                    array: true
+    t.string   "question_12",                      array: true
     t.string   "question_13"
     t.string   "question_13_input"
     t.string   "question_14"
-    t.string   "question_15",                    array: true
+    t.string   "question_15",                      array: true
     t.string   "question_15_input"
     t.string   "question_16"
     t.string   "question_16_input"
+    t.string   "question_16_w_input"
     t.string   "question_17"
     t.string   "question_17_input"
     t.string   "question_18"
     t.string   "question_18_input"
     t.string   "question_19"
     t.string   "question_20"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "redemptions", force: :cascade do |t|

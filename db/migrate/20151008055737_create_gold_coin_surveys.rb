@@ -28,6 +28,7 @@ class CreateGoldCoinSurveys < ActiveRecord::Migration
       t.string :question_15_input
       t.string :question_16
       t.string :question_16_input
+      t.string :question_16_w_input
       t.string :question_17
       t.string :question_17_input
       t.string :question_18

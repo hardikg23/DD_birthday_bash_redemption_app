@@ -27,6 +27,7 @@ class GoldCoinSurvey < ActiveRecord::Base
               "15) What are the top 5 categories you are going to shop online ",
               "15) Other Reason", 
               "16) Which payment Method Do you use most often when buying online",
+              "16) Other Wallet",
               "16) Other Reason", 
               "17) What are your biggest concerns when buying online this Diwali?",
               "17) Other Reason", 
@@ -35,7 +36,7 @@ class GoldCoinSurvey < ActiveRecord::Base
               "19) How much do you plan to spend online for gifting others this Diwali Season?",
               "20) Would you be willing to buy refurbished products online if price is good."]
       all.each do |g|
-        csv << [g.user_id, g.email, g.city, g.question_1, g.question_2, g.question_3, g.question_3_input, g.question_4, g.question_5, g.question_5_input, g.question_6, g.question_7, g.question_7_input, g.question_8, g.question_9, g.question_10, g.question_11, g.question_12, g.question_13, g.question_13_input, g.question_14, g.question_15, g.question_15_input, g.question_16, g.question_16_input, g.question_17, g.question_17_input, g.question_18, g.question_18_input, g.question_19, g.question_20]
+        csv << [g.user_id, g.email, g.city, g.question_1, g.question_2, g.question_3, g.question_3_input, g.question_4, g.question_5, g.question_5_input, g.question_6, g.question_7, g.question_7_input, g.question_8, g.question_9, g.question_10, g.question_11, g.question_12, g.question_13, g.question_13_input, g.question_14, g.question_15, g.question_15_input, g.question_16, g.question_16_w_input, g.question_16_input, g.question_17, g.question_17_input, g.question_18, g.question_18_input, g.question_19, g.question_20]
       end
     end
   end
