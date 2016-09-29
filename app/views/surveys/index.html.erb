@@ -1,0 +1,45 @@
+<div align="center">
+<table style="background:#ffffff;width:90%;" border="1" cellspacing="0" cellpadding="4" align="center">
+  <tr>
+    <td>
+      <%= link_to "Download List", surveys_path(:format => 'csv') %>
+    </td>
+  </tr> 
+</table>
+</div>
+
+<br><br>
+
+<table style="background:#ffffff;width:90%;" border="1" cellspacing="0" cellpadding="4" align="center">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>Email</th>
+      <th>Location</th>
+      <%Survey::HEADERS.each do |header|%>
+        <th><%=header%></th>
+      <%end%>
+    </tr>
+  </thead>
+  <% @surveys.each do |s| %>
+    <tr>
+      <td><%= s.user_id %></td>
+      <td><%= s.email %></td>
+      <td>
+        City : <%= s.city %><br>
+        Latitude : <%= s.latitude %><br>
+        Longitude: <%= s.longitude %><br>
+      </td>
+      <%Survey::HEADERS.each do |header|%>
+        <td>
+        <%= JSON.parse(s.questions[header]).join(',') rescue s.questions[header]%>
+        </td>
+      <%end%>
+    </tr>
+  <% end %>
+</table>
+
+<br><br>
+<div style="background:#ffffff;" align="center">
+  <%= will_paginate @surveys %>
+</div>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :redemptions, :only => [:index, :create]
   resources :gold_coin_surveys, :only => [:index, :create]
+  resources :surveys, :only => [:index, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
