@@ -6,7 +6,6 @@ class SurveysController < ApplicationController
      # Survey.where("question_12 && ?", '{Paytm, Flipkart}')
     page = params[:page] || 1
     @surveys = Survey.order('id desc').paginate(:page => page, :per_page => 20)
-    @headers = @surveys.first.questions.keys
     respond_to do |format|
       format.html # index.html.erb
       format.csv {send_data  Survey.order('id desc').to_csv, :type => 'text/csv' , :disposition => "attachment; filename=Survey.csv"}
