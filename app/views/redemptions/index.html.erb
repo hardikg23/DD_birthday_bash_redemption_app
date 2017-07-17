@@ -29,6 +29,7 @@
   <thead>
     <tr>
       <th>Email</th>
+      <th>DD User  ID</th>
       <th>Name</th>
       <th>Address</th>
       <th>Pin Code</th>
@@ -36,11 +37,13 @@
       <% if @redemption_type == 't-shirts' %>
         <th>T shirt size</th>
       <% end %>
+      <th>Event</th>
     </tr>
   </thead>
   <% @redemptions.each do |r| %>
     <tr>
       <td><%= r.email %></td>
+      <td><%= r.app_user_id %></td>
       <td><%= r.name %></td>
       <td><%= r.address %></td>
       <td><%= r.pin_code %></td>
@@ -48,6 +51,7 @@
       <% if @redemption_type == 't-shirts' %>
         <td><%= r.t_shirt_size %></td>
       <% end %>
+      <td><%= r.event %></td>
     </tr>
   <% end %>
 </table>

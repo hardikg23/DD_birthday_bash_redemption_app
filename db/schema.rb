@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008055737) do
+ActiveRecord::Schema.define(version: 20170717063302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "gold_coin_surveys", force: :cascade do |t|
     t.integer  "user_id"
@@ -65,6 +66,20 @@ ActiveRecord::Schema.define(version: 20151008055737) do
     t.string   "t_shirt_size"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "app_user_id"
+    t.string   "event"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "email"
+    t.string   "city"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.hstore   "questions"
+    t.string   "survey_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

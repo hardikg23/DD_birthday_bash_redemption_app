@@ -23,7 +23,7 @@ class RedemptionsController < ApplicationController
   private
 
     def reddeption_params
-      params.permit(:email, :name, :address, :pin_code, :contact_number, :redemption_type, :t_shirt_size)
+      params.permit(:email, :app_user_id, :event, :name, :address, :pin_code, :contact_number, :redemption_type, :t_shirt_size)
     end
 
 end
