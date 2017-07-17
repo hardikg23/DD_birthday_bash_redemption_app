@@ -4,10 +4,10 @@ class RedemptionsController < ApplicationController
   def index
     page = params[:page] || 1
     @redemption_type = params[:redemption_type] || 'mugs'
-    @redemptions = Redemption.where('redemption_type = ?', @redemption_type).order('id desc').paginate(:page => page, :per_page => 20)
+    @redemptions = Redemption.where('redemption_type = ? and deleted = ?', @redemption_type, false).order('id desc').paginate(:page => page, :per_page => 20)
     respond_to do |format|
       format.html # index.html.erb
-      format.csv {send_data  Redemption.where('redemption_type = ?', @redemption_type).order('id desc').to_csv, :type => 'text/csv' , :disposition => "attachment; filename=redemption.csv"}
+      format.csv {send_data  Redemption.where('redemption_type = ? and deleted = ?', @redemption_type, false).order('id desc').to_csv, :type => 'text/csv' , :disposition => "attachment; filename=redemption.csv"}
     end
   end
 
@@ -18,6 +18,11 @@ class RedemptionsController < ApplicationController
     else
       render json: {errors: redemption.errors.full_messages.to_sentence }, status: :unprocessable_entity
     end
+  end
+
+  def delete_all
+    Redemption.update_all(:deleted => true)
+    redirect_to redemptions_path
   end
 
   private
