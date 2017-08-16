@@ -4,9 +4,33 @@
     <td>
       <%= link_to "Download List", gold_coin_surveys_path(:format => 'csv') %>
     </td>
+    <td>
+      <%= link_to 'Delete All', delete_all_gold_coin_surveys_path, :method => :post, "data-confirm" => "Are you sure to delete all?"  %>
+    </td>
   </tr> 
 </table>
 </div>
+
+
+Q1) What is your Gender ?<br>
+Q2) Which age group do you belong to?<br>
+Q3) From where do you shop online the most?<br>
+Q4) What platform do you prefer for online shopping?<br>
+Q5) Have you reduced the frequency of traditional shopping due to online shopping?<br>
+Q6) How much in advance do you shop for Diwali?<br>
+Q7) How much are you planning to spend on Shopping this Diwali?<br>
+Q8) How much of this Spends will be Online vs Offline?<br>
+Q9) This Diwali, which are the Top 5 stores you would be shopping from?<br>
+Q10) Which is the most comfortable online shopping website? (Rank them in order of your preference)<br>
+Q11) What are the top 5 categories you are going to shop online?(Rank them in order of your preference)<br>
+Q12) Which payment Method Do you use most often when buying online ? (Rank them in order of your preference)<br>
+Q13) Which website has given you a bad experience in past?<br>
+Q14) How much do you plan to spend online for gifting others this Diwali Season? <br>
+Q15) This Diwali would you prefer gift cards over gift items ?<br>
+Q16) Which store gift card would you prefer to buy for gifting?(Rank them in order of your preference)<br>
+Q17) What is the average value of Gift Card you will buy for gifting this Diwali?<br>
+Q18) Would you be willing to buy refurbished products online if price is good. (A refurbished product is who’s box is opened for various reasons but professionally restored to working order by the brand or its certified agents. Hence the phone has been inspected, cleaned & repaired to meet brand specifications. With typically a 6 months warranty) 
+
 
 <br><br>
 
@@ -16,35 +40,24 @@
       <th>User ID</th>
       <th>Email</th>
       <th>Location</th>
-      <th>Question 1</th>
-      <th>Question 2</th>
-      <th>Question 3</th>
-      <th>Question 3(others)</th>
-      <th>Question 4</th>
-      <th>Question 5</th>
-      <th>Question 5(others)</th>
-      <th>Question 6</th>
-      <th>Question 7</th>
-      <th>Question 7(others)</th>
-      <th>Question 8</th>
-      <th>Question 9</th>
-      <th>Question 10</th>
-      <th>Question 11</th>
-      <th>Question 12</th>
-      <th>Question 13</th>
-      <th>Question 13(others)</th>
-      <th>Question 14</th>
-      <th>Question 15</th>
-      <th>Question 15(others)</th>
-      <th>Question 16</th>
-      <th>Question 16(Wallet)</th>
-      <th>Question 16(others)</th>
-      <th>Question 17</th>
-      <th>Question 17(others)</th>
-      <th>Question 18</th>
-      <th>Question 18(others)</th>
-      <th>Question 19</th>
-      <th>Question 20</th>
+      <th>Q1</th>
+      <th>Q2</th>
+      <th>Q3</th>
+      <th>Q4</th>
+      <th>Q5</th>
+      <th>Q6</th>
+      <th>Q7</th>
+      <th>Q8</th>
+      <th>Q9</th>
+      <th>Q10</th>
+      <th>Q11</th>
+      <th>Q12</th>
+      <th>Q13</th>
+      <th>Q14</th>
+      <th>Q15</th>
+      <th>Q16</th>
+      <th>Q17</th>
+      <th>Q18</th>
     </tr>
   </thead>
   <% @surveys.each do |s| %>
@@ -59,32 +72,21 @@
       <td><%= s.question_1 %></td>
       <td><%= s.question_2 %></td>
       <td><%= s.question_3 %></td>
-      <td><%= s.question_3_input %></td>
       <td><%= s.question_4 %></td>
       <td><%= s.question_5 %></td>
-      <td><%= s.question_5_input %></td>
       <td><%= s.question_6 %></td>
       <td><%= s.question_7 %></td>
-      <td><%= s.question_7_input %></td>
       <td><%= s.question_8 %></td>
+      <td><%= s.question_12 %></td>
+      <td><%= s.question_21 %></td>
+      <td><%= s.question_22 %></td>
+      <td><%= s.question_23 %></td>
+      <td><%= s.question_15 %></td>
       <td><%= s.question_9 %></td>
       <td><%= s.question_10 %></td>
+      <td><%= s.question_24 %></td>
       <td><%= s.question_11 %></td>
-      <td><%= s.question_12 %></td>
       <td><%= s.question_13 %></td>
-      <td><%= s.question_13_input %></td>
-      <td><%= s.question_14 %></td>
-      <td><%= s.question_15 %></td>
-      <td><%= s.question_15_input %></td>
-      <td><%= s.question_16 %></td>
-      <td><%= s.question_16_w_input %></td>
-      <td><%= s.question_16_input %></td>
-      <td><%= s.question_17 %></td>
-      <td><%= s.question_17_input %></td>
-      <td><%= s.question_18 %></td>
-      <td><%= s.question_18_input %></td>
-      <td><%= s.question_19 %></td>
-      <td><%= s.question_20 %></td>
     </tr>
   <% end %>
 </table>

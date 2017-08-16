@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'redemptions#index'
 
   post 'delete_all_redemptions' => "redemptions#delete_all"
+  post 'delete_all_gold_coin_surveys' => "gold_coin_surveys#delete_all"
 
   resources :redemptions, :only => [:index, :create]
   resources :gold_coin_surveys, :only => [:index, :create]
