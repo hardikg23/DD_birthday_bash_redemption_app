@@ -63,7 +63,10 @@ Q18) Would you be willing to buy refurbished products online if price is good. (
   <% @surveys.each do |s| %>
     <tr>
       <td><%= s.user_id %></td>
-      <td><%= s.email %></td>
+      <td>
+        <%= s.email %>
+        <%= s.event %>
+      </td>
       <td>
         City : <%= s.city %><br>
         Latitude : <%= s.latitude %><br>
