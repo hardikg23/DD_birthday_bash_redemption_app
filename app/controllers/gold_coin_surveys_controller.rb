@@ -14,10 +14,10 @@ class GoldCoinSurveysController < ApplicationController
 
   def create
     survey = GoldCoinSurvey.new(survey_params)
-    survey.question_21 = JSON.parse(params["question_21"])
-    survey.question_22 = JSON.parse(params["question_22"])
-    survey.question_23 = JSON.parse(params["question_23"])
-    survey.question_24 = JSON.parse(params["question_24"])
+    survey.question_21 = JSON.parse(params["question_21"]) if params["question_21"].present?
+    survey.question_22 = JSON.parse(params["question_22"]) if params["question_22"].present?
+    survey.question_23 = JSON.parse(params["question_23"]) if params["question_23"].present?
+    survey.question_24 = JSON.parse(params["question_24"]) if params["question_24"].present?
     if survey.save
       render json: { errors: nil }, status: :created
     else

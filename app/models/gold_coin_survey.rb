@@ -1,6 +1,6 @@
 class GoldCoinSurvey < ActiveRecord::Base
   validates_presence_of :user_id, :email
-  # validates_uniqueness_of :user_id, :message => "You have already submitted this form"
+  validates_uniqueness_of :user_id, :scope => [:event], :message => "You have already submitted this form"
 
   def self.to_csv
     require 'csv'
