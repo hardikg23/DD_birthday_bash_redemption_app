@@ -17,7 +17,7 @@ class GoldCoinSurvey < ActiveRecord::Base
   def self.to_csv
     require 'csv'
     CSV.generate do |csv|
-      csv << ["USER ID", "USER EMAIL", "CITY", 
+      csv << ["USER ID", "USER EMAIL", "CITY", "Time",
               "Q1) What is your Gender ?",
               "Q2) Which age group do you belong to?",
               "Q3) From where do you shop online the most?",
@@ -38,7 +38,7 @@ class GoldCoinSurvey < ActiveRecord::Base
               "Q18) Would you be willing to buy refurbished products online if price is good. (A refurbished product is who’s box is opened for various reasons but professionally restored to working order by the brand or its certified agents. Hence the phone has been inspected, cleaned & repaired to meet brand specifications. With typically a 6 months warranty)"
               ]
       all.each do |g|
-        csv << [g.user_id, g.email, g.city, g.question_1, g.question_2, g.question_3, g.question_4, g.question_5, g.question_6, g.question_7, g.question_8, g.question_12, g.question_21, g.question_22, g.question_23, g.question_15, g.question_9, g.question_10, g.question_24, g.question_11, g.question_13]
+        csv << [g.user_id, g.email, g.city, g.created_at, g.question_1, g.question_2, g.question_3, g.question_4, g.question_5, g.question_6, g.question_7, g.question_8, g.question_12, g.question_21, g.question_22, g.question_23, g.question_15, g.question_9, g.question_10, g.question_24, g.question_11, g.question_13]
       end
     end
   end
