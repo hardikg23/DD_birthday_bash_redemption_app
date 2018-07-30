@@ -5,9 +5,9 @@ class Redemption < ActiveRecord::Base
   def self.to_csv
     require 'csv'
     CSV.generate do |csv|
-      csv << ["Email", "Name", "Address", "Pin Code", "Contact Number", "T shirt size"]
+      csv << ["Email", "Name", "Address", "Pin Code", "Contact Number", "T shirt size", "User Id", "event"]
       all.each do |r|
-        csv << [r.email, r.name, r.address, r.pin_code, r.contact_number, r.t_shirt_size]
+        csv << [r.email, r.name, r.address, r.pin_code, r.contact_number, r.t_shirt_size, r.app_user_id, r.event]
       end
     end
   end
